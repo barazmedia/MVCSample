@@ -1,0 +1,61 @@
+@{
+    ViewData["Title"] = "Mahasiswa";
+}
+<h2>Data Mahasiswa </h2>
+<a asp-action="Create" class="btn btn-primary">Cteate New</a>
+
+
+<div class="row">
+@if(ViewData["pesan"] != null)
+{
+    @Html.Raw(ViewData["pesan"]);
+}
+</div>
+
+<form asp-action="Search">
+<div class="row g-3 align-items-center">
+    <div class="col-auto">
+        <label for="keyword" class="col-form-label">Masukkan keyword :</label>
+    </div>
+    <div class="col-auto">
+        <input type="radio" name="pilih" value="nim">NIM</input>
+    </div>
+    <div class="col-auto">
+        <input type="radio" name="pilih" value="nama">Nama</input>
+    </div>
+    <div class="col-auto">
+        <input type="text" name="keyword" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <input type="submit" class="btn btn-primary" value="Search"/>
+    </div>
+</div>
+</form>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">NIM</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telpon</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="">
+                <td scope="row">@item.Nim</td>
+                <td>@item.Nama</td>
+                <td>@item.Alamat</td>
+                <td>@item.Email</td>
+                <td>@item.Telpon</td>
+                <td><a asp-action="Update" class="btn btn-primary" asp-route-id="@item.Nim">Update</a>|
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.Nim">Delete</a></td>
+            </tr>
+            }
+            
+        </tbody>
+    </table>

@@ -1,0 +1,75 @@
+@model MVCSample.Models.Mahasiswa;
+
+<h2>Update Mahasiswa</h2>
+
+<div class="row">
+@if(ViewData["pesan"] != null)
+{
+    @Html.Raw(ViewData["pesan"]);
+}
+</div>
+<div asp-validation-summary="ModelOnly"></div>
+<form asp-action="UpdatePost">
+<div class="form-group">
+    <div class="col-auto">
+        <label for="Nim" class="control-label">NIM</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Nim" class="form-control" readonly="readonly"/>
+    </div>
+    <div class="col-auto">
+        <span class="text-danger" asp-validation-for="@Model.Nim"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Nama" class="control-label">Nama</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Nama" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span class="text-danger" asp-validation-for="@Model.Nama"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Alamat" class="control-label">Alamat</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Alamat" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span class="text-danger" asp-validation-for="@Model.Alamat"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Email" class="control-label">Email</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Email" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span class="text-danger" asp-validation-for="@Model.Email"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Telpon" class="control-label">Telpon</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Telpon" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span class="text-danger" asp-validation-for="@Model.Telpon"/>
+    </div>
+    </br>
+    <div class="col-auto">
+        <input type="submit" class="btn btn-primary" value="Submit">
+        <a asp-action="Index" class="btn btn-primary" >Back</a>
+    </div>
+</div>
+</form>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
