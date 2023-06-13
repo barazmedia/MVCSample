@@ -18374,6 +18374,11 @@
   "RootNamespace": "MVCSample",
   "Documents": [
     {
+      "FilePath": "d:\\MVCSample\\Views\\Upload\\Upload.cshtml",
+      "TargetPath": "Views\\Upload\\Upload.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MVCSample\\Views\\Mahasiswa\\Update.cshtml",
       "TargetPath": "Views\\Mahasiswa\\Update.cshtml",
       "FileKind": "mvc"

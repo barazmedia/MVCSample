@@ -1,3 +1,4 @@
+using Microsoft.Extensions.FileProviders;
 using MVCSample.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,13 @@ builder.Services.AddScoped<IPengguna,PenggunaDAL>();
 builder.Services.AddSession(options=>{
     options.IdleTimeout = TimeSpan.FromMinutes(2);
 });
+
+//menambahkan file provider
+builder.Services.AddSingleton<IFileProvider>(
+    new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(),"wwwroot")));
+
+        
 
 var app = builder.Build();
 
