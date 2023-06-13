@@ -3,6 +3,17 @@
 }
 
 <div class="text-center">
+@if(ViewData["pesan"] != null)
+{
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @Html.Raw(ViewData["pesan"])
+
+   <h3>@Context.Session.GetString("Username")</h3>
+    
+}
+else {
+
+    <h1 class="display-4">Selamat Datang</h1>
+    <p>Anda belum Login. Silahkan <a href="/Pengguna/Login">Login</a>&nbsp;atau <a href="/Pengguna/Register">Register</a> terlebih dahulu.</p>
+}
 </div>

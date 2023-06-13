@@ -1,0 +1,87 @@
+@model MVCSample.Models.Pengguna
+
+<h2>Form Registrasi</h2>
+
+<div class="row">
+@if(ViewData["pesan"] != null)
+{
+    @Html.Raw(ViewData["pesan"]);
+}
+</div>
+
+<form asp-action="RegisterPost">
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="form-group">
+    <div class="col-auto">
+        <label for="Username" class="control-label">Username</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Username" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span asp-validation-for="@Model.Username" class="text-danger"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Password" class="control-label">Password</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Password" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span asp-validation-for="@Model.Password" class="text-danger"/>
+    </div>
+
+
+
+    <div class="col-auto">
+        <label for="Repassword" class="control-label">Repassword</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Repassword" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span asp-validation-for="@Model.Repassword" class="text-danger"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Aturan" class="control-label">Aturan</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Aturan" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span asp-validation-for="@Model.Aturan" class="text-danger"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Nama" class="control-label">Nama</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Nama" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span asp-validation-for="@Model.Nama" class="text-danger"/>
+    </div>
+
+    <div class="col-auto">
+        <label for="Telpon" class="control-label">Telpon</label>
+    </div>
+    <div class="col-auto">
+        <input asp-for="Telpon" class="form-control"/>
+    </div>
+    <div class="col-auto">
+        <span asp-validation-for="@Model.Telpon" class="text-danger"/>
+    </div>
+
+
+    </br>
+    <div class="col-auto">
+        <input type="submit" class="btn btn-primary" value="Submit">
+        <a href="/Home/Index" class="btn btn-primary" >Back</a>
+    </div>
+</div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

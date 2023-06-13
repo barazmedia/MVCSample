@@ -16,8 +16,41 @@ namespace MVCSample.Controllers
         {
             _mhs = mhs;
         }
+
+
+        public bool isLogin()
+        {
+            if(HttpContext.Session.GetString("Username") == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        public bool cekAturan(string aturan)
+        {
+            if(HttpContext.Session.GetString("Aturan") != null && HttpContext.Session.GetString("Aturan") == aturan)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         public IActionResult Index()
         {
+            if(!isLogin())
+            {
+                TempData["pesan"] = $"<span class='alert alert-danger'>Silahkan login terlebih dahulu untuk mengakses data mahasiswa</span>";
+                return RedirectToAction("Login","Pengguna");
+            }
             return View(_mhs.getAll());
         }        
 
@@ -41,6 +74,18 @@ namespace MVCSample.Controllers
 
         public IActionResult Create()
         {
+            if(!isLogin()){
+                TempData["pesan"] = $"<span class='alert alert-danger'>Silahkan login terlebih dahulu untuk mengakses data mahasiswa</span>";
+                return RedirectToAction("Login","Pengguna");
+            }
+            else
+            {
+                if(!cekAturan("Admin"))
+                {
+                    TempData["pesan"] = $"<span class='alert alert-danger'>Silahkan login sebagai admin terlebih dahulu untuk mengakses data mahasiswa</span>";
+                    return RedirectToAction("Login","Pengguna");
+                }
+            }
             return View();
         }
         [HttpPost]
@@ -61,6 +106,11 @@ namespace MVCSample.Controllers
 
         public IActionResult Update(string id)
         {
+            if(!cekAturan("Admin"))
+                {
+                    TempData["pesan"] = $"<span class='alert alert-danger'>Silahkan login sebagai admin terlebih dahulu untuk mengakses data mahasiswa</span>";
+                    return RedirectToAction("Login","Pengguna");
+                }
             var data = _mhs.getById(id);
             return View(data);
         }
@@ -82,6 +132,12 @@ namespace MVCSample.Controllers
 
         public IActionResult Delete(string id)
         {
+            if(!cekAturan("Admin"))
+                {
+                    TempData["pesan"] = $"<span class='alert alert-danger'>Silahkan login sebagai admin terlebih dahulu untuk mengakses data mahasiswa</span>";
+                    return RedirectToAction("Login","Pengguna");
+                }
+            else{
             try
             {
                 _mhs.Delete(id);
@@ -92,6 +148,7 @@ namespace MVCSample.Controllers
             {
                 ViewData["pesan"] = $"<span class='alert alert-danger'>Error 1 :{ex.Message}</span>";
                 return View("Index",_mhs.getAll());
+            }
             }
         }
     }

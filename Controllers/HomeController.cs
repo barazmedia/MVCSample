@@ -28,49 +28,4 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
-
-    public IActionResult Register()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult RegiterAnggota(Anggota anggota)
-    {
-        return Content($"Username = {anggota.Username} Nama = {anggota.Nama} Alamat = {anggota.Alamat} Email = {anggota.Email}");
-    }
-
-    public IActionResult TampilAnggota()
-    {
-        List<Anggota> anggota = new List<Anggota>();
-        anggota.Add(
-            new Anggota{
-                Username = "kangbaraz",
-                Nama = "Miftakhudin",
-                Alamat = "Karave",
-                Email = "kangbaraz@gmail.com"});
-
-        anggota.Add(
-            new Anggota{
-                Username = "pandu",
-                Nama = "Pandu Satria Mahardika",
-                Alamat = "Bulili",
-                Email = "pandu@gmail.com"});
-
-        anggota.Add(
-            new Anggota{
-                Username = "amar",
-                Nama = "Amar Satria Mahardika",
-                Alamat = "Bulili",
-                Email = "amar@gmail.com"});
-
-        anggota.Add(
-            new Anggota{
-                Username = "putra",
-                Nama = "Putra Satria",
-                Alamat = "Motu",
-                Email = "putra@gmail.com"});
-
-        return View(anggota);
-    }
 }

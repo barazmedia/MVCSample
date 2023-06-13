@@ -23,14 +23,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/MVCSample/Views/Home/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxSZWdpc3Rlci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/MVCSample/Views/Home/TampilAnggota.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUYW1waWxBbmdnb3RhLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/MVCSample/Views/Mahasiswa/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +33,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/MVCSample/Views/Mahasiswa/Update.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXFVwZGF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MVCSample/Views/Pengguna/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/MVCSample/Views/Pengguna/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVuZ2d1bmFcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/MVCSample/Views/Shared/Error.cshtml]
